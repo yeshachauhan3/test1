@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounting System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Accounting System</h1>
+
+    <div class="section">
+      <h2>Initial Account Value</h2>
+      <input type="number" id="initialAccountInput" placeholder="Enter Initial Account Value">
+      <!-- <button id="setInitialAccountButton">Set Initial Value</button> -->
+      <button id="setInitialAccountButton">Set Initial Value</button>
+
+    </div>
+
+    <div class="section">
+      <h2>Account</h2>
+      <p id="accountValue">0</p>
+    </div>
+
+    <div class="section">
+      <h2>Expense</h2>
+      <input type="number" id="expenseInput" placeholder="Enter Expense">
+      <button id="expenseButton">Add Expense</button>
+    </div>
+
+    <div class="section">
+      <h2>Liability</h2>
+      <input type="number" id="liabilityInput" placeholder="Enter Liability">
+      <button id="liabilityButton">Add Liability</button>
+    </div>
+
+    <div class="income-section">
+      <h2>Income</h2>
+
+      <div class="subaccount">
+        <h3>Bonus</h3>
+        <input type="number" id="bonusInput" placeholder="Enter Bonus">
+        <button id="bonusButton">Add Bonus</button>
+      </div>
+
+      <div class="subaccount">
+        <h3>Gifts Received</h3>
+        <input type="number" id="giftsReceivedInput" placeholder="Enter Gifts Received">
+        <button id="giftsReceivedButton">Add Gifts Received</button>
+      </div>
+
+      <div class="subaccount">
+        <h3>Other Income</h3>
+        <input type="number" id="otherIncomeInput" placeholder="Enter Other Income">
+        <button id="otherIncomeButton">Add Other Income</button>
+      </div>
+
+      <div class="subaccount">
+        <h3>Interest Income</h3>
+        <input type="number" id="interestIncomeInput" placeholder="Enter Interest Income">
+        <button id="interestIncomeButton">Add Interest Income</button>
+      </div>
+
+      <div class="subaccount">
+        <h3>Salary</h3>
+        <input type="number" id="salaryInput" placeholder="Enter Salary">
+        <button id="salaryButton">Add Salary</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Assets</h2>
+      <input type="number" id="assetsInput" placeholder="Enter Assets">
+      <button id="assetsButton">Add Assets</button>
+    </div>
+
+    <div class="section">
+      <h2>Recent Transactions</h2>
+      <table id="transactionList">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-database-compat.js"></script>
+
+  <script type="module" src="test2.js"></script>
+
+  <script>
+    // Add event listeners for button clicks
+    document.getElementById('setInitialAccountButton').addEventListener('click', function() {
+      setInitialAccount();
+    });
+
+    document.getElementById('expenseButton').addEventListener('click', function() {
+      updateAccount('expense');
+    });
+
+    document.getElementById('liabilityButton').addEventListener('click', function() {
+      updateAccount('liability');
+    });
+
+    document.getElementById('bonusButton').addEventListener('click', function() {
+      updateAccount('income', 'bonus');
+    });
+
+    document.getElementById('giftsReceivedButton').addEventListener('click', function() {
+      updateAccount('income', 'giftsReceived');
+    });
+
+    document.getElementById('otherIncomeButton').addEventListener('click', function() {
+      updateAccount('income', 'otherIncome');
+    });
+
+    document.getElementById('interestIncomeButton').addEventListener('click', function() {
+      updateAccount('income', 'interestIncome');
+    });
+
+    document.getElementById('salaryButton').addEventListener('click', function() {
+      updateAccount('income', 'salary');
+    });
+
+    document.getElementById('assetsButton').addEventListener('click', function() {
+      updateAccount('assets');
+    });
+  </script>
+
+</body>
+
+</html>

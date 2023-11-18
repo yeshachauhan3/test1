@@ -1,0 +1,141 @@
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #363062; /* Dark Blue */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.site-header {
+    background-color: #23232e; /* Dark Blue-Grey */
+    color: #818FB4; /* Light Blue */
+    padding: 20px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #4CAF50; /* Green */
+}
+
+.main-navigation a,
+.user-navigation a {
+    color: #818FB4; /* Light Blue */
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-navigation a:hover,
+.user-navigation a:hover {
+    color: #363062; /* Dark Blue */
+}
+
+.secone {
+    color: #fff;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)),url('hero-image.jpg') center/cover no-repeat;
+    color: #fff; /* Beige */
+    text-align: center;
+    padding: 200px 0;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green */
+    color: #ffffff;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+.features,
+.about,
+.contact {
+    padding: 80px 0;
+    text-align: left;
+    background-color: #fff; /* Beige */
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.features h2,
+.about h2,
+.contact h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #363062; /* Dark Blue */
+}
+
+.feature-item {
+    margin-bottom: 40px;
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #363062; /* Dark Blue */
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icon {
+    display: inline-block;
+    color: #ffffff;
+    background-color: #4CAF50; /* Green */
+    padding: 15px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+.footer {
+    background-color: #23232e; /* Dark Blue-Grey */
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 0;
+}

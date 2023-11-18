@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounting System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Accounting System</h1>
+
+    <div class="section">
+      <h2>Initial Account Value</h2>
+      <input type="number" id="initialAccountInput" placeholder="Enter Initial Account Value">
+      <button onclick="setInitialAccount()">Set Initial Value</button>
+    </div>
+
+    <div class="section">
+      <h2>Account</h2>
+      <p id="accountValue">0</p>
+    </div>
+
+    <div class="section">
+      <h2>Expense</h2>
+      <input type="number" id="expenseInput" placeholder="Enter Expense">
+      <button onclick="updateAccount('expense')">Add Expense</button>
+    </div>
+
+    <div class="section">
+      <h2>Liability</h2>
+      <input type="number" id="liabilityInput" placeholder="Enter Liability">
+      <button onclick="updateAccount('liability')">Add Liability</button>
+    </div>
+
+    <div class="section">
+      <h2>Equity</h2>
+      <input type="number" id="equityInput" placeholder="Enter Equity">
+      <button onclick="updateAccount('equity')">Add Equity</button>
+    </div>
+
+    <div class="section">
+      <h2>Assets</h2>
+      <input type="number" id="assetsInput" placeholder="Enter Assets">
+      <button onclick="updateAccount('assets')">Add Assets</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
