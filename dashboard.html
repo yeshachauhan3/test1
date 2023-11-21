@@ -1,0 +1,113 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <h1>My Dashboard</h1>
+    </div>
+    <div class="navbar-user">
+      <p>Welcome, <span id="userName">John Doe</span>!</p>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <div class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="#transactions">Transactions</a></li>
+        <li><a href="#assets">Assets</a></li>
+        <li><a href="expenses.html">Expenses</a></li>
+        <li><a href="#income">Income</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="dashboard-block" id="transactions">
+        <h2>Transactions</h2>
+        <!-- Add your transaction content here -->
+      </div>
+
+      <div class="dashboard-block" id="initialAccount">
+        <h2>Initial Account Value</h2>
+        <p>Account Value: <span id="initialAccountValue">0</span></p>
+        
+        <!-- Add your initial account value content here -->
+      </div>
+
+      <div class="dashboard-block" id="assets">
+        <h2>Assets</h2>
+        <!-- Add your assets content here -->
+      </div>
+
+      <div class="dashboard-block" id="expenses">
+        <h2>Expenses</h2>
+        <!-- Add your expenses content here -->
+      
+    
+        <div class="subaccount">
+            <h3>Books</h3>
+            <!-- Add your Books expense content here -->
+        </div>
+    
+        <div class="subaccount">
+            <h3>Cable</h3>
+            <!-- Add your Cable expense content here -->
+        </div>
+    
+        <div class="subaccount">
+            <h3>Education</h3>
+            <!-- Add your Education expense content here -->
+        </div>
+    
+        <div class="subaccount">
+            <h3>Hobbies</h3>
+            <!-- Add your Hobbies expense content here -->
+        </div>
+    
+        <div class="subaccount">
+            <h3>Insurance</h3>
+            <!-- Add your Insurance expense content here -->
+        </div>
+    
+        <!-- Add more sub-accounts as needed -->
+    </div>
+    </div>
+
+      <div class="dashboard-block" id="income">
+        <h2>Income</h2>
+        <!-- Add your income content here -->
+      </div>
+
+    </div>
+    <div class="section">
+        <h2>Recent Transactions</h2>
+        <table id="transactionList">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-database-compat.js"></script>
+
+  <script type="module" src="test2.js"></script>
+
+</body>
+</html>

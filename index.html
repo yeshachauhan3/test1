@@ -18,10 +18,14 @@
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <nav class="user-navigation">
-                <a href="login3.html">Login</a>
+            <!-- <nav class="user-navigation">
+                <a href="login.html">Login</a>
                 <a href="signup.html">Sign Up</a>
-            </nav>
+            </nav> -->
+            <h4 class="header-avatar">
+                <span class="header-avatar-img"></span>
+                <span class="header-avatar-name"></span>
+            </h4>
         </div>
     </header>
 
@@ -31,7 +35,7 @@
                 <h1 id="secone">Welcome to Accounting Dashboard</h1>
                 <p id="secone">Effortlessly manage your finances with our intuitive accounting tools. Stay organized, save time,
                     and make smarter financial decisions.</p>
-                <a href="signup.html" class="cta-button">Get Started</a>
+                <a href="test3.html" class="cta-button">Get Started</a>
             </div>
         </div>
     </section>
@@ -101,6 +105,9 @@
     </footer>
 
     <script src="script.js"></script>
+    <script type="module">
+        document.getElementsByClassName("header-avatar-name")[0].innerHTML = localStorage.getItem("data");
+    </script>
 </body>
 
 </html>

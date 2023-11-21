@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Management System</title>
+    <link rel="stylesheet" href="assests.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Asset Management System</h1>
+
+        <div class="sub-account" id="current-assets">
+            <h2>Current Assets</h2>
+
+            <div class="transaction-list" id="transaction-list">
+                <!-- Transaction history will be displayed here -->
+            </div>
+
+            <button onclick="openTransactionForm()">+</button>
+        </div>
+    </div>
+
+    <div class="modal" id="transaction-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTransactionForm()">&times;</span>
+            <h2>New Transaction</h2>
+            <form id="transaction-form">
+                <label for="description">Description:</label>
+                <input type="text" id="description" required>
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" required>
+
+                <label for="transaction-type">Transaction Type:</label>
+                <select id="transaction-type">
+                    <option value="deposit">Deposit</option>
+                    <option value="withdrawal">Withdrawal</option>
+                </select>
+
+                <label for="note">Add Note:</label>
+                <textarea id="note"></textarea>
+
+                <button type="button" onclick="submitTransaction()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assest.js"></script>
+</body>
+</html>

@@ -71,15 +71,20 @@
                     var value = data[key];
                     var email = value.email;
                     var pass = value.pass;
+                    var name = value.name;
         
                     if (email == document.getElementById('email').value && pass == document.getElementById('pass').value) {
-                        // Redirect after a 
-                        console.log("Redirecting to test3.html");
-                        window.location.replace("test3.html");
+                        // Redirect after a delay
+                        //window.location.replace("test3.html");
+                        setTimeout(function(){
+                            window.location.replace("index.html");
+                        }, 2000);
+                    
+                        
         
                         // Store email in localStorage
-                        var emails = email;
-                        localStorage.setItem("data", emails);
+                        var names = name;
+                        localStorage.setItem("data", names);
         
                         // You may perform additional actions here based on the login success
                     }

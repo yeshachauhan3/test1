@@ -126,6 +126,8 @@
 // --new--
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js';
 import { getDatabase, ref, set, push } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js';
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js';
+
 
 // Firebase configuration
 const firebaseConfig = {
@@ -145,22 +147,30 @@ const database = getDatabase(app);
 console.log("Script loaded!");
 
 
+const auth = getAuth();
 
+let currentUser;
+
+// Listen for changes in user authentication state
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in
+        currentUser = user;
+        console.log('User is signed in:', user.uid);
+    } else {
+        // User is signed out
+        currentUser = null;
+        console.log('User is signed out');
+    }
+});
 let accountValue = 0;
 let transactions = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('setInitialAccountButton').addEventListener('click', setInitialAccount);
     document.getElementById('expenseButton').addEventListener('click', () => updateAccount('expense'));
-    document.getElementById('liabilityButton').addEventListener('click', () => updateAccount('liability'));
-    document.getElementById('bonusButton').addEventListener('click', () => updateAccount('income', 'bonus'));
-    document.getElementById('giftsReceivedButton').addEventListener('click', () => updateAccount('income', 'giftsReceived'));
-    document.getElementById('otherIncomeButton').addEventListener('click', () => updateAccount('income', 'otherIncome'));
-    document.getElementById('interestIncomeButton').addEventListener('click', () => updateAccount('income', 'interestIncome'));
-    document.getElementById('salaryButton').addEventListener('click', () => updateAccount('income', 'salary'));
-    document.getElementById('assetsButton').addEventListener('click', () => updateAccount('assets'));
+    document.getElementById('IncomeButton').addEventListener('click', () => updateAccount('income', 'Income'));
 });
-
 
 function setInitialAccount() {
     console.log("Setting initial account value...");
@@ -192,18 +202,12 @@ function updateAccount(type, subaccountType = null) {
             accountValue -= inputValue;
             transactionType = 'Expense';
             break;
-        case 'liability':
-            accountValue -= inputValue;
-            transactionType = 'Liability';
-            break;
+        
         case 'income':
             accountValue += inputValue;
             transactionType = subaccountType ? subaccountType : 'Income';
             break;
-        case 'assets':
-            accountValue += inputValue;
-            transactionType = 'Assets';
-            break;
+        
         default:
             break;
     }
@@ -217,15 +221,20 @@ function updateAccount(type, subaccountType = null) {
     updateMainAccountValue();
 }
 
-function updateMainAccountValue() {
+
+function updateMainAccountValue(uid) {
     // Update main account value in Firebase
-    set(ref(database, 'account'), {
+    set(ref(database, `user/${uid}/account`), {
         value: accountValue
     });
 }
 
 
-function logTransaction(type, amount, subaccountType = null) {
+
+function logTransaction(uid, type, amount, subaccountType = null) {
+    // Use the UID to construct the path for transactions
+    const transactionPath = `user/${uid}/transactions`;
+
     const date = new Date().toLocaleString();
     const transactionTableBody = document.querySelector('#transactionList tbody');
 
@@ -238,7 +247,7 @@ function logTransaction(type, amount, subaccountType = null) {
     const dateCell = document.createElement('td');
 
     // Set styles based on the transaction type
-    if (type === 'Expense' || type === 'Liability') {
+    if (type === 'Expense') {
         amountCell.style.color = 'red';
         amountCell.textContent = `-$${amount.toFixed(2)}`;
     } else {
@@ -265,13 +274,12 @@ function logTransaction(type, amount, subaccountType = null) {
     const transactionKey = `${type}-${Date.now()}`;
 
     // Push transaction data to Firebase with the custom key
-    const newTransactionRef = set(ref(database, `transactions/${transactionKey}`), {
+    const newTransactionRef = set(ref(database, `${transactionPath}/${transactionKey}`), {
         type: displayType,
-        amount: type === 'Expense' || type === 'Liability' ? -amount : amount,
+        amount: type === 'Expense' ? -amount : amount,
         date
     });
 }
-
 
 
 
