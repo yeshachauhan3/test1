@@ -70,10 +70,11 @@
                 for (var key in data) {
                     var value = data[key];
                     var email = value.email;
-                    var pass = value.password;
+                    var pass = value.pass;
         
                     if (email == document.getElementById('email').value && pass == document.getElementById('pass').value) {
-                        // Redirect after a delay
+                        // Redirect after a 
+                        console.log("Redirecting to test3.html");
                         window.location.replace("test3.html");
         
                         // Store email in localStorage
