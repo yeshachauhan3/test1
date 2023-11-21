@@ -49,7 +49,7 @@ body {
 }
 
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)),url('hero-image.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)),url('images/hero-image.jpg') center/cover no-repeat;
     color: #fff; /* Beige */
     text-align: center;
     padding: 200px 0;
