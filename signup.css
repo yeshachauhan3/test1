@@ -1,5 +1,6 @@
+/* General Styles */
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -11,18 +12,19 @@ body {
     overflow: hidden;
 }
 
+/* Header Styles */
 .site-header {
-    background-color: #23232e;
-    color: #ffffff;
+    background-color: #147efb;
+    color: #fff;
     padding: 20px 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .logo {
-    font-size: 36px;
+    font-size: 24px;
     font-weight: bold;
-    color: #4CAF50;
+    color: #fff;
 }
 
 .signup-form {
@@ -30,14 +32,15 @@ body {
     margin: 50px auto;
     padding: 30px;
     background-color: #fff;
-    
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .signup-form h2 {
     font-size: 36px;
     margin-bottom: 30px;
     text-align: center;
-    color: #363062;
+    color: #333;
 }
 
 form {
@@ -54,34 +57,34 @@ form input {
 form input[type="text"],
 form input[type="email"],
 form input[type="password"] {
-    width: calc(100% - 40px);
+    width: calc(100% - 20px);
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #363062;
+    border: 1px solid #333;
     border-radius: 5px;
 }
 
 form button {
-    background-color: #4CAF50;
-    color: #ffffff;
+    background-color: #147efb;
+    color: #fff;
     border: none;
     padding: 15px 30px;
     font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 200px;
+    width: 100%;
     display: inline-block;
-    
 }
 
 form button:hover {
-    background-color: #45a049;
+    background-color: #0c63db;
 }
 
+/* Footer Styles */
 .footer {
-    background-color: #23232e;
-    color: #ffffff;
+    background-color: #333;
+    color: #fff;
     text-align: center;
     padding: 20px;
     position: fixed;

@@ -1,8 +1,9 @@
+/* General Styles */
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    color: #363062; /* Dark Blue */
+    color: #333;
 }
 
 .container {
@@ -11,9 +12,10 @@ body {
     overflow: hidden;
 }
 
+/* Header Styles */
 .site-header {
-    background-color: #23232e; /* Dark Blue-Grey */
-    color: #818FB4; /* Light Blue */
+    background-color: #147efb;
+    color: #fff;
     padding: 20px 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -25,32 +27,27 @@ body {
 }
 
 .logo {
-    font-size: 36px;
+    font-size: 24px;
     font-weight: bold;
-    color: #4CAF50; /* Green */
+    color: #fff;
 }
 
-.main-navigation a,
 .user-navigation a {
-    color: #818FB4; /* Light Blue */
+    color: #fff;
     text-decoration: none;
     margin-left: 30px;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.main-navigation a:hover,
 .user-navigation a:hover {
-    color: #363062; /* Dark Blue */
+    color: #ddd;
 }
 
-.secone {
-    color: #fff;
-}
-
+/* Hero Section Styles */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)),url('images/hero-image.jpg') center/cover no-repeat;
-    color: #fff; /* Beige */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-image.jpg') center/cover no-repeat;
+    color: #fff;
     text-align: center;
     padding: 200px 0;
 }
@@ -59,38 +56,40 @@ body {
     font-size: 48px;
     margin-bottom: 20px;
     font-weight: bold;
+    color: #fff;
 }
 
 .hero-content p {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 40px;
+    color: #fff;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #4CAF50; /* Green */
-    color: #ffffff;
-    padding: 20px 40px;
+    background-color: #147efb;
+    color: #fff;
+    padding: 15px 30px;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #45a049; /* Darker Green */
+    background-color: #0c63db;
 }
 
+/* Section Styles */
 .features,
 .about,
 .contact {
     padding: 80px 0;
-    text-align: left;
-    background-color: #fff; /* Beige */
-    border-top: 1px solid #dddddd;
-    border-bottom: 1px solid #dddddd;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .features h2,
@@ -99,18 +98,34 @@ body {
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 40px;
-    color: #363062; /* Dark Blue */
+    color: #147efb;
 }
 
 .feature-item {
-    margin-bottom: 40px;
+    max-width: 600px;
+    margin: 0 auto 40px;
 }
 
 .feature-item h3 {
     font-size: 24px;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #363062; /* Dark Blue */
+    color: #333;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* About Us Section Styles */
+.about {
+    background-color: #fff;
+}
+
+/* Contact Section Styles */
+.contact {
+    background-color: #f5f5f5;
 }
 
 .social-icons {
@@ -119,37 +134,24 @@ body {
 
 .social-icon {
     display: inline-block;
-    color: #ffffff;
-    background-color: #4CAF50; /* Green */
+    color: #333;
+    background-color: #fff;
     padding: 15px 20px;
     margin: 0 10px;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 24px;
+    font-size: 18px;
     transition: background-color 0.3s ease;
 }
 
 .social-icon:hover {
-    background-color: #45a049; /* Darker Green */
+    background-color: #f0f0f0;
 }
 
+/* Footer Styles */
 .footer {
-    background-color: #23232e; /* Dark Blue-Grey */
-    color: #ffffff;
+    background-color: #333;
+    color: #fff;
     text-align: center;
     padding: 30px 0;
 }
-
-.header-content {
-    margin-left: auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-  }
-  .header-avatar-name {
-    margin-left: 0.75rem;
-  }
-  
