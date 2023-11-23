@@ -7,107 +7,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-database-compat.js"></script>
+
+    <script type="module" src="test2.js"></script>
+    <script type="module">
+        document.getElementsByClassName("header-avatar-name")[0].innerHTML = localStorage.getItem("data");
+    </script>
+
+    <!-- Add the content loading script -->
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to load content based on the clicked option
+            function loadContent(option) {
+                fetch(`${option}.html`)
+                    .then(response => response.text())
+                    .then(data => {
+                        // Inject the loaded content into the main-content div
+                        document.querySelector('.main-content').innerHTML = data;
+                    })
+                    .catch(error => console.error('Error loading content:', error));
+            }
+
+            // Event listeners for each option
+            document.querySelector('a[href="#transactions"]').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default behavior of scrolling
+                loadContent('new_transaction');
+            });
+
+            document.querySelector('a[href="#assets"]').addEventListener('click', function (event) {
+                event.preventDefault();
+                loadContent('assest');
+            });
+
+            document.querySelector('a[href="#expenses"]').addEventListener('click', function (event) {
+                event.preventDefault();
+                loadContent('expenses');
+            });
+
+            document.querySelector('a[href="#income"]').addEventListener('click', function (event) {
+                event.preventDefault();
+                loadContent('income');
+            });
+        });
+    </script>
 </head>
 <body>
 
-  <nav class="navbar">
+<nav class="navbar">
     <div class="navbar-brand">
-      <h1>My Dashboard</h1>
+        <h1>My Dashboard</h1>
     </div>
     <div class="navbar-user">
-      <p>Welcome, <span id="userName">John Doe</span>!</p>
+        <h4 class="header-avatar">
+            <span class="header-avatar-name"></span>
+        </h4>
+        <h4>
+            <span id="logoutButton" class="logout-text">Logout</span>
+        </h4>
     </div>
-  </nav>
+</nav>
 
-  <div class="dashboard-container">
+<div class="dashboard-container">
     <div class="sidebar">
-      <h2>Dashboard</h2>
-      <ul>
-        <li><a href="#transactions">Transactions</a></li>
-        <li><a href="#assets">Assets</a></li>
-        <li><a href="expenses.html">Expenses</a></li>
-        <li><a href="#income">Income</a></li>
-      </ul>
+        <ul>
+            <li><a href="#transactions">Transactions</a></li>
+            <li><a href="#assets">Assets</a></li>
+            <li><a href="#expenses">Expenses</a></li>
+            <li><a href="#income">Income</a></li>
+        </ul>
     </div>
 
     <div class="main-content">
-      <div class="dashboard-block" id="transactions">
-        <h2>Transactions</h2>
-        <!-- Add your transaction content here -->
-      </div>
+        <div class="dashboard-block" id="transactions">
+            <h2>Transactions</h2>
+            <!-- Add your transaction content here -->
+        </div>
 
-      <div class="dashboard-block" id="initialAccount">
-        <h2>Initial Account Value</h2>
-        <p>Account Value: <span id="initialAccountValue">0</span></p>
-        
-        <!-- Add your initial account value content here -->
-      </div>
+        <div class="dashboard-block" id="initialAccount">
+            <h2>Initial Account Value</h2>
+            <p>Account Value: <span id="initialAccountValue">0</span></p>
+            <!-- Add your initial account value content here -->
+        </div>
 
-      <div class="dashboard-block" id="assets">
-        <h2>Assets</h2>
-        <!-- Add your assets content here -->
-      </div>
+        <div class="dashboard-block" id="assets">
+            <h2>Assets</h2>
+            <!-- Add your assets content here -->
+        </div>
 
-      <div class="dashboard-block" id="expenses">
-        <h2>Expenses</h2>
-        <!-- Add your expenses content here -->
-      
-    
-        <div class="subaccount">
-            <h3>Books</h3>
-            <!-- Add your Books expense content here -->
+        <div class="dashboard-block" id="expenses">
+            <h2>Expenses</h2>
+            <!-- Add your expenses content here -->
+            <div class="subaccount">
+                <h3>Books</h3>
+                <!-- Add your Books expense content here -->
+            </div>
+
+            <div class="subaccount">
+                <h3>Cable</h3>
+                <!-- Add your Cable expense content here -->
+            </div>
+
+            <div class="subaccount">
+                <h3>Education</h3>
+                <!-- Add your Education expense content here -->
+            </div>
+
+            <div class="subaccount">
+                <h3>Hobbies</h3>
+                <!-- Add your Hobbies expense content here -->
+            </div>
+
+            <div class="subaccount">
+                <h3>Insurance</h3>
+                <!-- Add your Insurance expense content here -->
+            </div>
+            <!-- Add more sub-accounts as needed -->
         </div>
-    
-        <div class="subaccount">
-            <h3>Cable</h3>
-            <!-- Add your Cable expense content here -->
-        </div>
-    
-        <div class="subaccount">
-            <h3>Education</h3>
-            <!-- Add your Education expense content here -->
-        </div>
-    
-        <div class="subaccount">
-            <h3>Hobbies</h3>
-            <!-- Add your Hobbies expense content here -->
-        </div>
-    
-        <div class="subaccount">
-            <h3>Insurance</h3>
-            <!-- Add your Insurance expense content here -->
-        </div>
-    
-        <!-- Add more sub-accounts as needed -->
     </div>
-    </div>
-
-      <div class="dashboard-block" id="income">
-        <h2>Income</h2>
-        <!-- Add your income content here -->
-      </div>
-
-    </div>
-    <div class="section">
-        <h2>Recent Transactions</h2>
-        <table id="transactionList">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Amount</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-  </div>
-
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-database-compat.js"></script>
-
-  <script type="module" src="test2.js"></script>
-
+</div>
 </body>
 </html>
