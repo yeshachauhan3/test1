@@ -79,3 +79,56 @@ button:hover {
 #transactionList tbody tr:hover {
     background-color: #f5f5f5;
 }
+
+/*toggle button*/
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hide the default checkbox */
+#transactionType {
+    display: none;
+}
+
+/* Style the slider */
+.slider {
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Added cubic-bezier easing */
+}
+
+/* Style the slider's handle (thumb) */
+.slider::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Added cubic-bezier easing */
+}
+
+/* Change background color when checked */
+#transactionType:checked + .slider {
+    background-color: #4CAF50;
+}
+
+/* Move the slider's handle based on the checkbox state */
+#transactionType:checked + .slider::before {
+    transform: translateX(25px);
+    background-color: #fff; /* Background color when checked */
+}
+
+/* Change background color when unchecked */
+#transactionType:not(:checked) + .slider {
+    background-color: red; /* Background color when unchecked */
+}
