@@ -41,11 +41,14 @@
           
         </select>
 
-        <label for="transactionType">Transaction Type:</label>
-        <select id="transactionType" required>
-          <option value="expense">Expense</option>
-          <option value="rebate">Rebate</option>
-        </select>
+        
+        <div class="toggle-switch">
+          <label for="transactionType">Debit</label>
+          <input type="checkbox" id="transactionType" name="transactionType">
+          <div class="slider"></div>
+          <label for="transactionType">Credit</label>
+      </div>
+      
 
         <label for="noteInput">Note:</label>
         <textarea id="noteInput" placeholder="Add Note"></textarea>
