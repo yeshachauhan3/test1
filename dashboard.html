@@ -50,8 +50,18 @@
                 event.preventDefault();
                 loadContent('income');
             });
+
+            // Logout button functionality
+            document.getElementById('logoutButton').addEventListener('click', function () {
+                // Redirect to index.html
+                window.location.href = 'index.html';
+
+                // Replace the current history entry to prevent going back to the dashboard
+                window.history.replaceState(null, null, 'index.html');
+            });
         });
     </script>
+
 </head>
 <body>
 
